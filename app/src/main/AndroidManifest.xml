@@ -31,6 +31,18 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".TrainingActivity"
+            android:exported="true"/>
+        <activity android:name=".CongratulationsActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".trainingPlans.EasyTrainingPlanActivity"
+            android:exported="true" />
+        <activity
+            android:name=".trainingActivities.EasyTrainingActivity"
+            android:exported="true" />
+
+
     </application>
 
 </manifest>

@@ -26,12 +26,12 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, PulsometerActivity::class.java)
                 startActivity(intent)
             },
-            MenuButton("Button 2", "Button 2") {
+            MenuButton("Pulse 2", "Pulse 2") {
                 val intent = Intent(this, PulsometerActivity::class.java)
                 startActivity(intent)
             },
-            MenuButton("Button 3","Button 3" ) {
-                val intent = Intent(this, MainActivity::class.java)
+            MenuButton("Train","Train" ) {
+                val intent = Intent(this, TrainingActivity::class.java)
                 startActivity(intent)
             },
             MenuButton("Button 4","Button 4" ) {
@@ -71,5 +71,13 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+        menuRecyclerView.postDelayed({
+            val centeredView = snapHelper.findSnapView(layoutManager)
+            centeredView?.let {
+                val position = layoutManager.getPosition(it)
+                menuButtonAdapter.setCenteredPosition(position)
+            }
+        }, 5)
+
     }
 }
