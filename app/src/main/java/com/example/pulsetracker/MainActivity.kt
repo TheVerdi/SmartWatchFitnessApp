@@ -3,20 +3,23 @@ package com.example.pulsetracker
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pulsetracker.adapter.MenuButtonAdapter
 import com.example.pulsetracker.data.MenuButton
 import com.mig35.carousellayoutmanager.CarouselLayoutManager
 import com.mig35.carousellayoutmanager.CarouselZoomPostLayoutListener
-import com.mig35.carousellayoutmanager.CenterScrollListener
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var menuRecyclerView: RecyclerView
+    private lateinit var menuButtonAdapter: MenuButtonAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
 
-        val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
+        menuRecyclerView = findViewById(R.id.recycler_view)
 
         val menuButtons = listOf(
             MenuButton("Pulse", "Pulse") {
@@ -45,14 +48,28 @@ class MainActivity : AppCompatActivity() {
             }
         )
 
-        recyclerView.adapter = MenuButtonAdapter(menuButtons)
-
+        menuButtonAdapter = MenuButtonAdapter(menuButtons)
+        menuRecyclerView.adapter = menuButtonAdapter
 
         val layoutManager = CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL)
         layoutManager.setPostLayoutListener(CarouselZoomPostLayoutListener())
-        recyclerView.layoutManager = layoutManager
-        recyclerView.setHasFixedSize(true)
-        recyclerView.addOnScrollListener(CenterScrollListener())
+        menuRecyclerView.layoutManager = layoutManager
+        menuRecyclerView.setHasFixedSize(true)
 
+        val snapHelper = PagerSnapHelper()
+        snapHelper.attachToRecyclerView(menuRecyclerView)
+
+        menuRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    val centeredView = snapHelper.findSnapView(layoutManager)
+                    centeredView?.let {
+                        val position = layoutManager.getPosition(it)
+                        menuButtonAdapter.setCenteredPosition(position)
+                    }
+                }
+            }
+        })
     }
 }
