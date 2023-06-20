@@ -36,7 +36,7 @@
             android:layout_height="40dp"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:text="Start"
+            android:text="@string/start_text"
             android:textSize="10sp"/>
 
         <Button
@@ -45,7 +45,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:text="Return"
+            android:text="@string/return_text"
             android:textSize="10sp"/>
 
     </LinearLayout>
