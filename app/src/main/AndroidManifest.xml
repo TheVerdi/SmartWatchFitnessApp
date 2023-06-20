@@ -15,9 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
         <activity
             android:name=".PulsometerActivity"
-            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:exported="true">
         </activity>
@@ -71,6 +74,24 @@
             android:exported="true" />
         <activity
             android:name=".trainingActivities.EasyCyclingTrainingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".trainingPlans.EasySwimmingTrainingPlanActivity"
+            android:exported="true" />
+        <activity
+            android:name=".trainingActivities.EasySwimmingTrainingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".trainingPlans.MediumSwimmingTrainingPlanActivity"
+            android:exported="true" />
+        <activity
+            android:name=".trainingActivities.MediumSwimmingTrainingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".trainingPlans.HardSwimmingTrainingPlanActivity"
+            android:exported="true" />
+        <activity
+            android:name=".trainingActivities.HardSwimmingTrainingActivity"
             android:exported="true" />
 
 

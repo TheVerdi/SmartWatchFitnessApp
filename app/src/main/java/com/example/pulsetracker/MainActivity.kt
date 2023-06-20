@@ -45,8 +45,10 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
 
             },
-            MenuButton("Button 5","Button 5" ) {
-                val intent = Intent(this, MainActivity::class.java)
+            MenuButton("Swim","Swim" ) {
+                val intent = Intent(this, TrainingActivity::class.java).apply {
+                    putExtra("TRAINING_TYPE", TrainingType.SWIMMING)
+                }
                 startActivity(intent)
             },
             MenuButton("Button 6","Button 6" ) {
