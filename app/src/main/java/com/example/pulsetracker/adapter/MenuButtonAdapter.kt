@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pulsetracker.R
 import com.example.pulsetracker.data.MenuButton
@@ -16,7 +15,6 @@ class MenuButtonAdapter(private val menuButtons: List<MenuButton>) :
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val button: Button = view.findViewById(R.id.menu_button)
-        val label: TextView = view.findViewById(R.id.menu_button_label)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

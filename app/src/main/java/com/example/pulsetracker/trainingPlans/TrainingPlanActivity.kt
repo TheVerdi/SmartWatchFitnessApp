@@ -5,15 +5,19 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager.widget.ViewPager
 import com.example.pulsetracker.R
+import com.example.pulsetracker.adapter.ModeAdapter
+import com.example.pulsetracker.data.Mode
+import com.example.pulsetracker.enums.TrainingType
 
-abstract class TrainingPlanActivity : AppCompatActivity() {
 
-    private lateinit var descriptionTextView: TextView
-    private lateinit var startButton: Button
+abstract class TrainingPlanActivity(private val trainingType: TrainingType) : AppCompatActivity() {
+
+    protected lateinit var descriptionTextView: TextView
+    protected lateinit var startButton: Button
     private lateinit var returnButton: Button
 
-    abstract val exerciseDescription: String
     abstract val trainingActivityClass: Class<*>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,15 +28,8 @@ abstract class TrainingPlanActivity : AppCompatActivity() {
         startButton = findViewById(R.id.start_training_button)
         returnButton = findViewById(R.id.return_button)
 
-        descriptionTextView.text = exerciseDescription
-
-        // Set up the button actions
-        startButton.setOnClickListener {
-            val intent = Intent(this, trainingActivityClass)
-            startActivity(intent)
-        }
         returnButton.setOnClickListener {
-            finish() // This will close the current activity and go back to TrainingActivity
+            finish() // This will close the current activity and go back to MainActivity
         }
     }
 }

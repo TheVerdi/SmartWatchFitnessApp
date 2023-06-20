@@ -1,16 +1,18 @@
-package com.example.pulsetracker.trainingActivities
+package com.example.pulsetracker.utils
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Button
 import android.widget.Chronometer
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.pulsetracker.CongratulationsActivity
 import com.example.pulsetracker.R
 import com.example.pulsetracker.data.TrainingStep
 import java.util.Locale
 
-abstract class TrainingActivity : AppCompatActivity() {
+abstract class AbsTrainingActivity : AppCompatActivity() {
 
     var currentStepIndex = 0
 
@@ -39,8 +41,8 @@ abstract class TrainingActivity : AppCompatActivity() {
 
     fun startStep(stepIndex: Int) {
         if (stepIndex >= trainingPlan.size) {
-            // Training plan is finished
-            finish()
+            val intent = Intent(this, CongratulationsActivity::class.java)
+            startActivity(intent)
             return
         }
 

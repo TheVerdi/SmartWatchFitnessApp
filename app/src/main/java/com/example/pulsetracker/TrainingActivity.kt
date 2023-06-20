@@ -1,37 +1,36 @@
 package com.example.pulsetracker
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.pulsetracker.adapter.ModeAdapter
 import com.example.pulsetracker.data.Mode
-import com.example.pulsetracker.trainingPlans.EasyTrainingPlanActivity
-import com.example.pulsetracker.trainingPlans.HardTrainingPlanActivity
-import com.example.pulsetracker.trainingPlans.MediumTrainingPlanActivity
-
+import com.example.pulsetracker.enums.TrainingType
+import com.example.pulsetracker.utils.TrainingFactory
 
 class TrainingActivity : AppCompatActivity() {
     private lateinit var modesViewPager: ViewPager
+    private var trainingType: TrainingType = TrainingType.RUNNING  // default to running
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_training)
 
+        // Retrieve the training type from Intent
+        trainingType = intent.getSerializableExtra("TRAINING_TYPE") as? TrainingType ?: TrainingType.RUNNING
+
         val modes = listOf(
             Mode("Easy") {
-                val intent = Intent(this, EasyTrainingPlanActivity::class.java)
-                startActivity(intent)
+                startActivity(TrainingFactory.createTrainingPlan(this@TrainingActivity, trainingType, "Easy"))
             },
             Mode("Medium") {
-                val intent = Intent(this, MediumTrainingPlanActivity::class.java)
-                startActivity(intent)
+                startActivity(TrainingFactory.createTrainingPlan(this@TrainingActivity, trainingType, "Medium"))
             },
             Mode("Hard") {
-                val intent = Intent(this, HardTrainingPlanActivity::class.java)
-                startActivity(intent)
+                startActivity(TrainingFactory.createTrainingPlan(this@TrainingActivity, trainingType, "Hard"))
             }
+
         )
 
         val modeAdapter = ModeAdapter(modes, this)

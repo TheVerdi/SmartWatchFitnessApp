@@ -34,13 +34,46 @@
         <activity android:name=".TrainingActivity"
             android:exported="true"/>
         <activity android:name=".CongratulationsActivity"
+            android:theme="@style/AppTheme.NoActionBar"
             android:exported="true"/>
         <activity
-            android:name=".trainingPlans.EasyTrainingPlanActivity"
+            android:name=".trainingPlans.EasyRunningTrainingPlanActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingActivities.EasyTrainingActivity"
+            android:name=".trainingActivities.EasyRunningTrainingActivity"
             android:exported="true" />
+        <activity
+            android:name=".trainingPlans.MediumRunningTrainingPlanActivity"
+            android:exported="true" />
+        <activity
+            android:name=".trainingActivities.MediumRunningTrainingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".trainingPlans.HardRunningTrainingPlanActivity"
+            android:exported="true" />
+        <activity
+            android:name=".trainingActivities.HardRunningTrainingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".trainingPlans.HardCyclingTrainingPlanActivity"
+            android:exported="true" />
+        <activity
+            android:name=".trainingActivities.HardCyclingTrainingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".trainingPlans.MediumCyclingTrainingPlanActivity"
+            android:exported="true" />
+        <activity
+            android:name=".trainingActivities.MediumCyclingTrainingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".trainingPlans.EasyCyclingTrainingPlanActivity"
+            android:exported="true" />
+        <activity
+            android:name=".trainingActivities.EasyCyclingTrainingActivity"
+            android:exported="true" />
+
+
 
 
     </application>

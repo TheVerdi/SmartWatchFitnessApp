@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pulsetracker.adapter.MenuButtonAdapter
 import com.example.pulsetracker.data.MenuButton
+import com.example.pulsetracker.enums.TrainingType
 import com.mig35.carousellayoutmanager.CarouselLayoutManager
 import com.mig35.carousellayoutmanager.CarouselZoomPostLayoutListener
 
@@ -30,13 +31,19 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, PulsometerActivity::class.java)
                 startActivity(intent)
             },
-            MenuButton("Train","Train" ) {
-                val intent = Intent(this, TrainingActivity::class.java)
+            MenuButton("Run","Run" ) {
+                val intent = Intent(this, TrainingActivity::class.java).apply {
+                    putExtra("TRAINING_TYPE", TrainingType.RUNNING)
+                }
                 startActivity(intent)
+
             },
-            MenuButton("Button 4","Button 4" ) {
-                val intent = Intent(this, MainActivity::class.java)
+            MenuButton("Bike","Bike" ) {
+                val intent = Intent(this, TrainingActivity::class.java).apply {
+                    putExtra("TRAINING_TYPE", TrainingType.CYCLING)
+                }
                 startActivity(intent)
+
             },
             MenuButton("Button 5","Button 5" ) {
                 val intent = Intent(this, MainActivity::class.java)
