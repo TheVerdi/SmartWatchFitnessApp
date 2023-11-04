@@ -1,9 +1,10 @@
-package com.example.pulsetracker.trainingPlans
+package com.example.pulsetracker.trainingPlans.cyclePlan
 
 import android.content.Intent
 import android.os.Bundle
 import com.example.pulsetracker.enums.TrainingType
-import com.example.pulsetracker.trainingActivities.MediumCyclingTrainingActivity
+import com.example.pulsetracker.trainingActivities.cycleTraining.MediumCyclingTrainingActivity
+import com.example.pulsetracker.trainingPlans.TrainingPlanActivity
 
 class MediumCyclingTrainingPlanActivity : TrainingPlanActivity(TrainingType.CYCLING) {
 

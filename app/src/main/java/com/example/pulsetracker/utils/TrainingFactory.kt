@@ -3,15 +3,15 @@ package com.example.pulsetracker.utils
 import android.content.Context
 import android.content.Intent
 import com.example.pulsetracker.enums.TrainingType
-import com.example.pulsetracker.trainingPlans.EasyCyclingTrainingPlanActivity
-import com.example.pulsetracker.trainingPlans.EasyRunningTrainingPlanActivity
-import com.example.pulsetracker.trainingPlans.EasySwimmingTrainingPlanActivity
-import com.example.pulsetracker.trainingPlans.HardCyclingTrainingPlanActivity
-import com.example.pulsetracker.trainingPlans.HardRunningTrainingPlanActivity
-import com.example.pulsetracker.trainingPlans.HardSwimmingTrainingPlanActivity
-import com.example.pulsetracker.trainingPlans.MediumCyclingTrainingPlanActivity
-import com.example.pulsetracker.trainingPlans.MediumRunningTrainingPlanActivity
-import com.example.pulsetracker.trainingPlans.MediumSwimmingTrainingPlanActivity
+import com.example.pulsetracker.trainingPlans.cyclePlan.EasyCyclingTrainingPlanActivity
+import com.example.pulsetracker.trainingPlans.cyclePlan.HardCyclingTrainingPlanActivity
+import com.example.pulsetracker.trainingPlans.cyclePlan.MediumCyclingTrainingPlanActivity
+import com.example.pulsetracker.trainingPlans.runPlan.EasyRunningTrainingPlanActivity
+import com.example.pulsetracker.trainingPlans.runPlan.HardRunningTrainingPlanActivity
+import com.example.pulsetracker.trainingPlans.runPlan.MediumRunningTrainingPlanActivity
+import com.example.pulsetracker.trainingPlans.swimPlan.EasySwimmingTrainingPlanActivity
+import com.example.pulsetracker.trainingPlans.swimPlan.HardSwimmingTrainingPlanActivity
+import com.example.pulsetracker.trainingPlans.swimPlan.MediumSwimmingTrainingPlanActivity
 
 object TrainingFactory {
     fun createTrainingPlan(context: Context, trainingType: TrainingType, mode: String): Intent {

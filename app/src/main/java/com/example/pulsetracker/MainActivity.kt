@@ -31,27 +31,23 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, PulsometerActivity::class.java)
                 startActivity(intent)
             },
-            MenuButton("Run","Run" ) {
-                val intent = Intent(this, TrainingActivity::class.java).apply {
-                    putExtra("TRAINING_TYPE", TrainingType.RUNNING)
-                }
+            MenuButton("Run", "Run") {
+                val intent = Intent(this, TrainingActivity::class.java)
+                intent.putExtra("TRAINING_TYPE", TrainingType.RUNNING)
                 startActivity(intent)
 
             },
-            MenuButton("Bike","Bike" ) {
-                val intent = Intent(this, TrainingActivity::class.java).apply {
-                    putExtra("TRAINING_TYPE", TrainingType.CYCLING)
-                }
-                startActivity(intent)
-
-            },
-            MenuButton("Swim","Swim" ) {
-                val intent = Intent(this, TrainingActivity::class.java).apply {
-                    putExtra("TRAINING_TYPE", TrainingType.SWIMMING)
-                }
+            MenuButton("Bike", "Bike") {
+                val intent = Intent(this, TrainingActivity::class.java)
+                intent.putExtra("TRAINING_TYPE", TrainingType.CYCLING)
                 startActivity(intent)
             },
-            MenuButton("Button 6","Button 6" ) {
+            MenuButton("Swim", "Swim") {
+                val intent = Intent(this, TrainingActivity::class.java)
+                intent.putExtra("TRAINING_TYPE", TrainingType.SWIMMING)
+                startActivity(intent)
+            },
+            MenuButton("Button 6", "Button 6") {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }

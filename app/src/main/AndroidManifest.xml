@@ -52,58 +52,58 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:exported="true"/>
         <activity
-            android:name=".trainingPlans.EasyRunningTrainingPlanActivity"
+            android:name=".trainingPlans.runPlan.EasyRunningTrainingPlanActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingActivities.EasyRunningTrainingActivity"
+            android:name=".trainingActivities.runTraining.EasyRunningTrainingActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingPlans.MediumRunningTrainingPlanActivity"
+            android:name=".trainingPlans.runPlan.MediumRunningTrainingPlanActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingActivities.MediumRunningTrainingActivity"
+            android:name=".trainingActivities.runTraining.MediumRunningTrainingActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingPlans.HardRunningTrainingPlanActivity"
+            android:name=".trainingPlans.runPlan.HardRunningTrainingPlanActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingActivities.HardRunningTrainingActivity"
+            android:name=".trainingActivities.runTraining.HardRunningTrainingActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingPlans.HardCyclingTrainingPlanActivity"
+            android:name=".trainingPlans.cyclePlan.HardCyclingTrainingPlanActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingActivities.HardCyclingTrainingActivity"
+            android:name=".trainingActivities.cycleTraining.HardCyclingTrainingActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingPlans.MediumCyclingTrainingPlanActivity"
+            android:name=".trainingPlans.cyclePlan.MediumCyclingTrainingPlanActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingActivities.MediumCyclingTrainingActivity"
+            android:name=".trainingActivities.cycleTraining.MediumCyclingTrainingActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingPlans.EasyCyclingTrainingPlanActivity"
+            android:name=".trainingPlans.cyclePlan.EasyCyclingTrainingPlanActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingActivities.EasyCyclingTrainingActivity"
+            android:name=".trainingActivities.cycleTraining.EasyCyclingTrainingActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingPlans.EasySwimmingTrainingPlanActivity"
+            android:name=".trainingPlans.swimPlan.EasySwimmingTrainingPlanActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingActivities.EasySwimmingTrainingActivity"
+            android:name=".trainingActivities.swimTraining.EasySwimmingTrainingActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingPlans.MediumSwimmingTrainingPlanActivity"
+            android:name=".trainingPlans.swimPlan.MediumSwimmingTrainingPlanActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingActivities.MediumSwimmingTrainingActivity"
+            android:name=".trainingActivities.swimTraining.MediumSwimmingTrainingActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingPlans.HardSwimmingTrainingPlanActivity"
+            android:name=".trainingPlans.swimPlan.HardSwimmingTrainingPlanActivity"
             android:exported="true" />
         <activity
-            android:name=".trainingActivities.HardSwimmingTrainingActivity"
+            android:name=".trainingActivities.swimTraining.HardSwimmingTrainingActivity"
             android:exported="true" />
 
 

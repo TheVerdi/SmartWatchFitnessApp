@@ -30,7 +30,6 @@ class TrainingActivity : AppCompatActivity() {
             Mode("Hard") {
                 startActivity(TrainingFactory.createTrainingPlan(this@TrainingActivity, trainingType, "Hard"))
             }
-
         )
 
         val modeAdapter = ModeAdapter(modes, this)

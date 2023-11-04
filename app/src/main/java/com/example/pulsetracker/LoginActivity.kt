@@ -1,4 +1,4 @@
-package com.example.pulsetracker;
+package com.example.pulsetracker
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.pulsetracker.utils.AuthUtils.removeEmptySpaces
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
@@ -30,8 +31,8 @@ class LoginActivity : AppCompatActivity() {
 
 
         loginButton.setOnClickListener {
-            val username = usernameEditText.text.toString()
-            val password = passwordEditText.text.toString()
+            val username = removeEmptySpaces(usernameEditText.text.toString())
+            val password = removeEmptySpaces(passwordEditText.text.toString())
 
             if (username.isEmpty() || password.isEmpty()) {
                 Toast.makeText(
