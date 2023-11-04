@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "649885167886",
+    "project_id": "inzynierka-5e5ac",
+    "storage_bucket": "inzynierka-5e5ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:649885167886:android:5da15eab64e01e4ae2275f",
+        "android_client_info": {
+          "package_name": "com.example.pulsetracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuf3u-Pis7K0LrZxTlkEytQQqH4GE1bw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

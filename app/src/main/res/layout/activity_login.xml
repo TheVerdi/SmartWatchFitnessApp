@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="0dp" />
 
         <EditText
             android:id="@+id/passwordEditText"
@@ -25,24 +24,38 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             android:layout_below="@id/usernameEditText"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="5dp" />
 
         <Button
             android:id="@+id/signUpButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:text="Sign Up"
             android:layout_below="@id/passwordEditText"
-            android:layout_marginTop="16dp" />
+            android:textSize="12sp"
+            android:layout_marginTop="0dp" />
 
         <Button
             android:id="@+id/loginButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
             android:text="Login"
             android:layout_toRightOf="@id/signUpButton"
             android:layout_below="@id/passwordEditText"
+            android:textSize="12sp"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/errorMessageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/loginButton"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp" />
+            android:text=""
+            android:textColor="#FF0000"
+            android:visibility="gone" />
+
     </RelativeLayout>
 </ScrollView>
