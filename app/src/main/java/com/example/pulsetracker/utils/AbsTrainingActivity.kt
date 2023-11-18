@@ -12,7 +12,10 @@ import com.example.pulsetracker.R
 import com.example.pulsetracker.data.TrainingStep
 import java.util.Locale
 
-abstract class AbsTrainingActivity : AppCompatActivity() {
+abstract class AbsTrainingActivity(
+    private val trainingType: String,
+    private val trainingMode: String
+) : AppCompatActivity() {
 
     var currentStepIndex = 0
 
@@ -42,6 +45,8 @@ abstract class AbsTrainingActivity : AppCompatActivity() {
     fun startStep(stepIndex: Int) {
         if (stepIndex >= trainingPlan.size) {
             val intent = Intent(this, CongratulationsActivity::class.java)
+            intent.putExtra("TRAINING_TYPE", trainingType)
+            intent.putExtra("TRAINING_MODE", trainingMode)
             startActivity(intent)
             return
         }

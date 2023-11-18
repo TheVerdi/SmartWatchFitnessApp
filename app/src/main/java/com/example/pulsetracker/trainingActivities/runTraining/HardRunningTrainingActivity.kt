@@ -7,7 +7,7 @@ import com.example.pulsetracker.constants.AppTexts.WARM_UP_WALK
 import com.example.pulsetracker.utils.AbsTrainingActivity
 import com.example.pulsetracker.utils.TrainingUtils
 
-class HardRunningTrainingActivity : AbsTrainingActivity() {
+class HardRunningTrainingActivity : AbsTrainingActivity("Hard", "Running") {
     override val trainingPlan = TrainingUtils.generateTrainingSteps(
         WARM_UP_WALK,
         5 * 60 * 1000,

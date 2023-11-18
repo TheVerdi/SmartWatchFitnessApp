@@ -7,7 +7,7 @@ import com.example.pulsetracker.constants.AppTexts.WARM_UP_SWIM
 import com.example.pulsetracker.utils.AbsTrainingActivity
 import com.example.pulsetracker.utils.TrainingUtils
 
-class HardSwimmingTrainingActivity : AbsTrainingActivity() {
+class HardSwimmingTrainingActivity : AbsTrainingActivity("Hard", "Swimming") {
     override val trainingPlan = TrainingUtils.generateTrainingSteps(
         WARM_UP_SWIM,
         5 * 60 * 1000,

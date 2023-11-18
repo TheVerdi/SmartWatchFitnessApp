@@ -5,21 +5,33 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.pulsetracker.database.UserTrainingRepository
 
 class CongratulationsActivity : AppCompatActivity() {
     private lateinit var returnButton: Button
     private lateinit var congratulationsMessage: TextView
+    private val userTrainingRepository = UserTrainingRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_congratulations)
 
         returnButton = findViewById(R.id.return_button)
         congratulationsMessage = findViewById(R.id.congratulations_message)
 
-        congratulationsMessage.text = "Congratulations! You've completed your training."
+        val trainingType = intent.getStringExtra("TRAINING_TYPE")
+        val trainingMode = intent.getStringExtra("TRAINING_MODE")
+
+        congratulationsMessage.text =
+            "Congratulations! You've completed your $trainingType training on $trainingMode mode."
+
 
         returnButton.setOnClickListener {
+            userTrainingRepository.saveUserTrainingToDB(
+                trainingType.toString(),
+                trainingMode.toString()
+            )
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
