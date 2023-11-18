@@ -43,14 +43,23 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SignUpActivity"
-            android:exported="true"/>
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="true" />
 
-        <activity android:name=".TrainingActivity"
-            android:exported="true"/>
-        <activity android:name=".CongratulationsActivity"
+        <activity
+            android:name=".TrainingActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".CongratulationsActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:exported="true"/>
+            android:exported="true" />
+
+        <activity
+            android:name=".StatsActivity"
+            android:exported="true" />
+
         <activity
             android:name=".trainingPlans.runPlan.EasyRunningTrainingPlanActivity"
             android:exported="true" />

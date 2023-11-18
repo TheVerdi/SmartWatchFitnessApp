@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, PulsometerActivity::class.java)
                 startActivity(intent)
             },
-            MenuButton("Pulse 2", "Pulse 2") {
-                val intent = Intent(this, PulsometerActivity::class.java)
+            MenuButton("Stats", "Stats") {
+                val intent = Intent(this, StatsActivity::class.java)
                 startActivity(intent)
             },
             MenuButton("Run", "Run") {

@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.pulsetracker.database.UserTrainingRepository
+import com.example.pulsetracker.database.UserRepository
 
 class CongratulationsActivity : AppCompatActivity() {
     private lateinit var returnButton: Button
     private lateinit var congratulationsMessage: TextView
-    private val userTrainingRepository = UserTrainingRepository()
+    private val userRepository = UserRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,7 @@ class CongratulationsActivity : AppCompatActivity() {
 
 
         returnButton.setOnClickListener {
-            userTrainingRepository.saveUserTrainingToDB(
+            userRepository.saveUserTrainingToDB(
                 trainingType.toString(),
                 trainingMode.toString()
             )
