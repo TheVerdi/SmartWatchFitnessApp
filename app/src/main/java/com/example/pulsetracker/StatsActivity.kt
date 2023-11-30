@@ -2,18 +2,22 @@ package com.example.pulsetracker
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pulsetracker.database.UserRepository
 import com.google.firebase.auth.FirebaseAuth
 
 class StatsActivity : AppCompatActivity() {
     private lateinit var userStatsRepository: UserRepository
+    private lateinit var textViewStats: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stats)
 
         userStatsRepository = UserRepository()
+
+        textViewStats = findViewById(R.id.textViewStats)
 
         val userId = FirebaseAuth.getInstance().currentUser?.uid
 
@@ -23,19 +27,19 @@ class StatsActivity : AppCompatActivity() {
 
         val btnReturnToMain: Button = findViewById(R.id.btnReturnToMain)
         btnReturnToMain.setOnClickListener {
-            finish() // Close the com.example.pulsetracker.StatsActivity and return to the previous activity
+            finish()
         }
     }
 
     private fun getUserStats(userId: String) {
         userStatsRepository.getUserStats(userId) { userStats ->
-            // Now you can use userStats to update UI or perform other operations
-            // For example, display the number of different training modes and types
-            val numTrainingModes = userStats.trainingModes.size
-            val numTrainingTypes = userStats.trainingTypes.size
+            runOnUiThread {
+                textViewStats.text =
+                    "\nTotal Trainings: ${userStats.totalTrainings}\n" +
+                            "Last Training Type: ${userStats.lastTrainingType}\n" +
+                            "Last Training Mode: ${userStats.lastTrainingMode}"
+            }
 
-            // Update UI with the statistics
-            // (e.g., set text on TextViews, update charts, etc.)
         }
     }
 }

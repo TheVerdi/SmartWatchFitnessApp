@@ -52,26 +52,41 @@ class UserRepository {
     }
 
     fun getUserStats(userId: String, callback: (UserStats) -> Unit) {
-        databaseRef.child(userId).addListenerForSingleValueEvent(object : ValueEventListener {
+
+//        val userId = FirebaseAuth.getInstance().currentUser?.uid
+//        val databaseRef =
+//            FirebaseDatabase.getInstance(REPOSITORY_REFERENCE).getReference(NODE_USER_TRAINING).child(userId.orEmpty())
+
+        databaseRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val userStats = UserStats()
+                var totalTrainings = 0
+                var lastTrainingType: String? = null
+                var lastTrainingMode: String? = null
 
-                for (trainingSnapshot in snapshot.children) {
-                    val training = trainingSnapshot.getValue(UserTraining::class.java)
-                    if (training != null) {
-                        userStats.addTraining(
-                            training.trainingType ?: "",
-                            training.trainingMode ?: ""
-                        )
+                for (childSnapshot in snapshot.children) {
+                    val userTraining = childSnapshot.getValue(UserTraining::class.java)
+
+                    userTraining?.let {
+                        totalTrainings++
+                        lastTrainingType = it.trainingType
+                        lastTrainingMode = it.trainingMode
                     }
-                }
 
-                callback.invoke(userStats)
+                }
+                val userStats = UserStats(totalTrainings, lastTrainingType, lastTrainingMode)
+
+                // Pass the UserStats object to the callback function
+                callback(userStats)
+
+
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Handle the error
+                // Handle errors
+                Log.e("Firebase", "Error reading user training data", error.toException())
             }
         })
+
+
     }
 }

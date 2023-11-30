@@ -44,6 +44,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth-ktx:22.2.0'
     implementation 'org.projectlombok:lombok:1.18.22'
+    implementation "androidx.health.connect:connect-client:1.1.0-alpha06"
+
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
     // Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
