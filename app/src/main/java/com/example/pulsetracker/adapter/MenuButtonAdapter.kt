@@ -18,7 +18,8 @@ class MenuButtonAdapter(private val menuButtons: List<MenuButton>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.menu_item, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.menu_item, parent, false)
         return ViewHolder(view)
     }
 
@@ -35,7 +36,7 @@ class MenuButtonAdapter(private val menuButtons: List<MenuButton>) :
                 menuButton.onClickListener.invoke()
             }
         } else {
-            holder.button.setOnClickListener(null) // remove onClickListener
+            holder.button.setOnClickListener(null)
         }
     }
 
@@ -45,7 +46,6 @@ class MenuButtonAdapter(private val menuButtons: List<MenuButton>) :
         val oldPosition = centeredPosition
         centeredPosition = position
 
-        // Notify the adapter about change in centered position so it can update the clickability
         notifyItemChanged(oldPosition)
         notifyItemChanged(centeredPosition)
     }

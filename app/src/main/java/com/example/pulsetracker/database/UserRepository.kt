@@ -13,7 +13,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class UserRepository {
-
     private var databaseRef: DatabaseReference
 
     init {
@@ -41,10 +40,8 @@ class UserRepository {
             userTrainings.setValue(userTraining)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        // Data has been written successfully
                         Log.d("Firebase", "Training entry added successfully.")
                     } else {
-                        // Handle the error
                         Log.e("Firebase", "Error adding training entry", task.exception)
                     }
                 }
@@ -52,11 +49,6 @@ class UserRepository {
     }
 
     fun getUserStats(userId: String, callback: (UserStats) -> Unit) {
-
-//        val userId = FirebaseAuth.getInstance().currentUser?.uid
-//        val databaseRef =
-//            FirebaseDatabase.getInstance(REPOSITORY_REFERENCE).getReference(NODE_USER_TRAINING).child(userId.orEmpty())
-
         databaseRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 var totalTrainings = 0
@@ -71,22 +63,13 @@ class UserRepository {
                         lastTrainingType = it.trainingType
                         lastTrainingMode = it.trainingMode
                     }
-
                 }
                 val userStats = UserStats(totalTrainings, lastTrainingType, lastTrainingMode)
-
-                // Pass the UserStats object to the callback function
                 callback(userStats)
-
-
             }
-
             override fun onCancelled(error: DatabaseError) {
-                // Handle errors
                 Log.e("Firebase", "Error reading user training data", error.toException())
             }
         })
-
-
     }
 }

@@ -13,12 +13,12 @@
         android:layout_weight="1"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@android:color/black" /> <!-- Add your custom color if needed -->
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/textCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textColor="@android:color/black" /> <!-- Add your custom color if needed -->
+        android:textColor="@android:color/black" />
 </LinearLayout>

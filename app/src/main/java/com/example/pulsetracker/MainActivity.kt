@@ -23,12 +23,12 @@ class MainActivity : AppCompatActivity() {
         menuRecyclerView = findViewById(R.id.recycler_view)
 
         val menuButtons = listOf(
-            MenuButton("Pulse", "Pulse") {
-                val intent = Intent(this, PulsometerActivity::class.java)
-                startActivity(intent)
-            },
             MenuButton("Stats", "Stats") {
                 val intent = Intent(this, StatsActivity::class.java)
+                startActivity(intent)
+            },
+            MenuButton("Pulse", "Pulse") {
+                val intent = Intent(this, PulsometerActivity::class.java)
                 startActivity(intent)
             },
             MenuButton("Run", "Run") {
@@ -45,10 +45,6 @@ class MainActivity : AppCompatActivity() {
             MenuButton("Swim", "Swim") {
                 val intent = Intent(this, TrainingActivity::class.java)
                 intent.putExtra("TRAINING_TYPE", TrainingType.SWIMMING)
-                startActivity(intent)
-            },
-            MenuButton("Button 6", "Button 6") {
-                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
         )
