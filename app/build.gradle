@@ -44,6 +44,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth-ktx:22.2.0'
     implementation 'org.projectlombok:lombok:1.18.22'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.google.firebase:protolite-well-known-types:18.0.0'
+
 
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
     // Import the BoM for the Firebase platform

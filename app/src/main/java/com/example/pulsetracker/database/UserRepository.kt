@@ -55,18 +55,33 @@ class UserRepository {
                 var lastTrainingType: String? = null
                 var lastTrainingMode: String? = null
 
+                // Use a map to store the count of each training type
+                val trainingTypeCounts = mutableMapOf<String, Int>()
+
                 for (childSnapshot in snapshot.children) {
                     val userTraining = childSnapshot.getValue(UserTraining::class.java)
 
                     userTraining?.let {
                         totalTrainings++
+
+                        // Update the count for each training type
+                        val type = it.trainingMode ?: ""
+                        trainingTypeCounts[type] = trainingTypeCounts.getOrDefault(type, 0) + 1
+
                         lastTrainingType = it.trainingType
                         lastTrainingMode = it.trainingMode
                     }
                 }
-                val userStats = UserStats(totalTrainings, lastTrainingType, lastTrainingMode)
+
+                val userStats = UserStats(
+                    totalTrainings,
+                    trainingTypeCounts,
+                    lastTrainingType,
+                    lastTrainingMode
+                )
                 callback(userStats)
             }
+
             override fun onCancelled(error: DatabaseError) {
                 Log.e("Firebase", "Error reading user training data", error.toException())
             }

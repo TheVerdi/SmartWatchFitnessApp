@@ -33,11 +33,31 @@ class StatsActivity : AppCompatActivity() {
 
     private fun getUserStats(userId: String) {
         userStatsRepository.getUserStats(userId) { userStats ->
+// Inside the getUserStats callback
             runOnUiThread {
                 textViewStats.text =
                     "\nTotal Trainings: ${userStats.totalTrainings}\n" +
                             "Last Training Type: ${userStats.lastTrainingType}\n" +
-                            "Last Training Mode: ${userStats.lastTrainingMode}"
+                            "Last Training Mode: ${userStats.lastTrainingMode}\n" +
+                            "Training Type Counts:\n" +
+                            "   - RUNNING: ${
+                                userStats.trainingTypeCounts.getOrDefault(
+                                    "Running",
+                                    0
+                                )
+                            }\n" +
+                            "   - CYCLING: ${
+                                userStats.trainingTypeCounts.getOrDefault(
+                                    "Cycling",
+                                    0
+                                )
+                            }\n" +
+                            "   - SWIMMING: ${
+                                userStats.trainingTypeCounts.getOrDefault(
+                                    "Swimming",
+                                    0
+                                )
+                            }"
             }
 
         }
